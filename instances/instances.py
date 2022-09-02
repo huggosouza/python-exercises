@@ -2,7 +2,7 @@ import os
 
 class Car():
     def __init__(self):
-        self.color = input("Type the car color:")
+        self.color = input("Type the color of the car: ")
         self.year = input("Type the year of the car: ")
         self.carID = 0
         
@@ -22,6 +22,6 @@ for i in carList:
     carList[i].carID = [i]
 
 
-os.system("cls")
+os.system("clear")
 for i in range(0, len(carList)):
     print(carList[i].printall())
