@@ -21,7 +21,5 @@ for i in carList:
     carList[i] = Car()
     carList[i].carID = [i]
 
-
-os.system("clear")
 for i in range(0, len(carList)):
-    print(carList[i].printall())
+    carList[i].printall()
