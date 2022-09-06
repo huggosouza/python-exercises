@@ -1,4 +1,5 @@
 from random import randint
+from datetime import datetime
 import json
 
 if __name__ == '__main__':
@@ -8,23 +9,23 @@ if __name__ == '__main__':
             print("------ Digite os dados ------\n")
             escola = str(input("Escola: "))
             nome = str(input("Nome: "))
-            cpf = str(input("CPF: "))
-            matricula = str(input("Matrícula: "))
-            email = str(input("E-mail: "))
             telefone = str(input("Telefone: "))
             funcao = str(input("Função: "))
             problema = str(input("Problema: "))
             protocolo = randint(10, 200)
+            data_e_hora_atuais = datetime.now()
+            data_em_texto = data_e_hora_atuais.strftime('%d/%m/%Y')
+            hora_em_texto = data_e_hora_atuais.strftime('%H:%M')
             
-            dicionario = {"Escola" : escola,
+            dicionario = {f"Escola" : escola,
                           "Nome" : nome,
-                          "CPF" : cpf,
-                          "Matrícula" : matricula,
-                          "E-mail" : email,
                           "Telefone" : telefone,
                           "Função" : funcao,
                           "Problema" : problema,
-                          "Protocolo" : protocolo}
+                          "Protocolo" : protocolo,
+                          "Data" : data_em_texto,
+                          "Hora" : hora_em_texto
+                          }
             
             saveData(dicionario=dicionario)
     
@@ -32,6 +33,7 @@ if __name__ == '__main__':
         with open("data.txt", 'a') as f: 
             for key, value in dicionario.items(): 
                 f.write('%s: %s\n' % (key, value))
+                
             f.write("\n")
             
         with open("data.json", 'a') as f: 
